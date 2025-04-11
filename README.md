@@ -6,17 +6,17 @@
 
 This repository is the official implementation of "APE: A Data-Centric Benchmark for Efficient LLM Adaptation in Text Summarization," submitted to NeurIPS 2025. During the review process, this code is provided as supplementary material to maintain anonymity. Post-review, the public repository will be released.
 
-> **Abstract:** Large language models (LLMs), pre-trained on trillion-token-scale datasets like C4 using denoising objectives, excel in general tasks but often require efficient adaptation for specific applications. We propose Adjacent Possible Exploration (APE), a data-centric methodology inspired by Stuart Kauffman’s “adjacent possible,” designed as a reusable framework for benchmarking LLM adaptability across diverse tasks. By iteratively perturbing training data in small batches—mimicking biological evolution—APE guides models toward domain-specific performance with minimal resources, offering a scalable alternative to traditional fine-tuning and parameter-efficient methods like LoRA. We evaluate APE on the CNN/DailyMail dataset for news summarization, using full-scale and scaled-down setups, with qualitative analysis and human evaluation confirming its effectiveness. APE’s focus on data optimization provides a computationally efficient benchmark for adapting LLMs, extensible to tasks beyond summarization, such as question answering or dialogue generation, in resource-constrained settings.
-> 
-> **BibTeX (Pending Acceptance):**
-> ```
-> @misc{anon2025ape,
->   title={APE: A Data-Centric Benchmark for Efficient LLM Adaptation in Text Summarization},
->   author={[Anonymous for Submission]},
->   year={2025},
->   note={Submitted to NeurIPS 2025},
-> }
-> ```
+### Abstract: Large language models (LLMs), pre-trained on trillion-token-scale datasets like C4 using denoising objectives, excel in general tasks but often require efficient adaptation for specific applications. We propose Adjacent Possible Exploration (APE), a data-centric methodology inspired by Stuart Kauffman’s “adjacent possible,” designed as a reusable framework for benchmarking LLM adaptability across diverse tasks. By iteratively perturbing training data in small batches—mimicking biological evolution—APE guides models toward domain-specific performance with minimal resources, offering a scalable alternative to traditional fine-tuning and parameter-efficient methods like LoRA. We evaluate APE on the CNN/DailyMail dataset for news summarization, using full-scale and scaled-down setups, with qualitative analysis and human evaluation confirming its effectiveness. APE’s focus on data optimization provides a computationally efficient benchmark for adapting LLMs, extensible to tasks beyond summarization, such as question answering or dialogue generation, in resource-constrained settings.
+
+ ### BibTeX (Pending Acceptance):
+ ```
+ @misc{anon2025ape,
+   title={APE: A Data-Centric Benchmark for Efficient LLM Adaptation in Text Summarization},
+   author={[Anonymous for Submission]},
+   year={2025},
+   note={Submitted to NeurIPS 2025},
+ }
+ ```
 
 ## Requirements
 - Installation: To install requirements:
