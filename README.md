@@ -91,9 +91,9 @@ APE achieves the following performance on the CNN/DailyMail dataset:
 Run ape_full_scale_experiment.ipynb to reproduce quantitative results (Figure 2) and ape_scaled_down_experiment.ipynb for qualitative summaries (Table 3). See PapersWithCode for context.
 
 ### Contributing
-This project is licensed under the . You are free to share and adapt the material for non-commercial purposes with appropriate credit.
+This project is licensed under the Apache License (Version 2.0, January 2004, http://www.apache.org/licenses/). You are free to share and adapt the material for non-commercial purposes with appropriate credit.
 
-### Contrinution
+### Contribution
 - Fork the repository post-review (once public).
 - Submit pull requests with bug fixes, enhancements, or additional experiments.
 
