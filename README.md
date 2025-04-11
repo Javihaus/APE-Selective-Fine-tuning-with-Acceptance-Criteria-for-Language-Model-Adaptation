@@ -87,18 +87,17 @@ APE achieves the following performance on the CNN/DailyMail dataset:
 - Fluency:	2.09	/ 3.43
 - Factual Accuracy:	2.32	/ 3.05
 
-### Reproduction: 
+### Reproduction 
 Run ape_full_scale_experiment.ipynb to reproduce quantitative results (Figure 2) and ape_scaled_down_experiment.ipynb for qualitative summaries (Table 3). See PapersWithCode for context.
 
 ### Contributing
 This project is licensed under the . You are free to share and adapt the material for non-commercial purposes with appropriate credit.
 
-### To contribute:
+### Contrinution
+- Fork the repository post-review (once public).
+- Submit pull requests with bug fixes, enhancements, or additional experiments.
 
-#### Fork the repository post-review (once public).
-Submit pull requests with bug fixes, enhancements, or additional experiments.
-
-### Contact:
+### Contact
 Contact the authors via the NeurIPS portal during review for suggestions.
 
 **Note**: Contributions are welcome after the review process when the repository is made public. For now, please refrain from direct modifications to maintain anonymity.
