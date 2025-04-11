@@ -1,90 +1,96 @@
-# APE: Adjacent Possible Exploration for LLM Adaptation
+# APE: A Data-Centric Benchmark for Efficient LLM Adaptation in Text Summarization
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![License](https://img.shields.io/badge/License-CC%20BY%204.0-green.svg)
 ![Hardware](https://img.shields.io/badge/Hardware-T4%20GPU-orange.svg)
 
-## Overview
+This repository is the official implementation of "APE: A Data-Centric Benchmark for Efficient LLM Adaptation in Text Summarization," submitted to NeurIPS 2025. During the review process, this code is provided as supplementary material to maintain anonymity. Post-review, the public repository will be released.
 
-This repository contains the official implementation of **Adjacent Possible Exploration (APE)**, a data-centric methodology for efficiently adapting large language models (LLMs) to text summarization tasks, as presented in the NeurIPS 2025 submission:
+> **Abstract:** APE leverages iterative data perturbations inspired by the "adjacent possible" theory to fine-tune T5-base for text summarization, achieving efficient adaptation with limited resources.  
+> **BibTeX (Pending Acceptance):**
+> ```
+> @misc{anon2025ape,
+>   title={APE: A Data-Centric Benchmark for Efficient LLM Adaptation in Text Summarization},
+>   author={[Anonymous for Submission]},
+>   year={2025},
+>   note={Submitted to NeurIPS 2025},
+> }
+> ```
 
-**"APE: A Data-Centric Benchmark for Efficient LLM Adaptation in Text Summarization"**  
-*Authors:* [Anonymous for Submission]  
-*Submission Date:* April 10, 2025  
+## Requirements
+- Installation: To install requirements:
 
-APE leverages iterative data perturbations inspired by Stuart Kauffman’s "adjacent possible" theory to fine-tune LLMs (T5-base) with minimal computational resources. This repository includes two experiments:
-- **Scaled-Down Experiment:** Fine-tunes on 1,200 CNN/DailyMail articles over 15 iterations, focusing on qualitative analysis.
-- **Full-Scale Experiment:** Fine-tunes on 4,000 articles over 17 iterations, providing quantitative metrics (BLEU, ROUGE-1, BERTScore, perplexity).
-
-## Repository Structure
-
-- **`notebooks/`**: Jupyter notebooks for both experiments.
-  - `ape_scaled_down_experiment.ipynb`: Scaled-down setup with qualitative outputs.
-  - `ape_full_scale_experiment.ipynb`: Full-scale setup with quantitative results and plots.
-- **`data/`**: Placeholder for dataset access instructions (CNN/DailyMail hosted externally).
-- **`results/`**: Placeholder for output files (models, summaries, plots) stored on Google Drive.
-- **`requirements.txt`**: List of Python dependencies.
-- **`LICENSE`**: Creative Commons Attribution 4.0 License.
-- **`.gitignore`**: Excludes unnecessary files (e.g., checkpoints, logs).
-
-## Prerequisites
-
-- **Hardware:** Google Colab with T4 GPU (16 GB VRAM, 7.5 TFLOPS recommended).
-- **Software:** Python 3.8+, Google Colab environment.
-- **Dependencies:** See `requirements.txt` for full list.
-
-## Setup Instructions
-
-### Install Dependencies
-
+```bash
 pip install -r requirements.txt
+```
+Alternatively, run the notebooks in Google Colab, which include a commented !pip install cell for convenience.
 
-### Alternative Installation
-Alternatively, run the notebooks in Google Colab, which includes a commented !pip install cell for dependency installation directly within the notebook environment.
+- Environment: Python 3.8+, Google Colab with T4 GPU (16 GB VRAM recommended).
+- Dataset: CNN/DailyMail v3.0.0, automatically downloaded via the datasets library. Ensure a stable internet connection.
+- Storage: Mount Google Drive in Colab with ~5 GB free space for outputs. Update BASE_DIR in notebooks if using a custom path.
 
-### Access Data
-The CNN/DailyMail dataset (v3.0.0) is loaded via the datasets library. See data/README.md for details. Ensure a stable internet connection for dataset download.
+### Training
+To train the APE model(s) as described in the paper, use the provided Jupyter notebooks:
 
-### Google Drive Setup
-Mount your Google Drive in Colab to save outputs (requires ~5 GB free space). Update BASE_DIR in the notebooks if using a different path.
+### Scaled-Down Experiment
+- Command: Open notebooks/ape_scaled_down_experiment.ipynb in Colab and run all cells.
+- Details: Fine-tunes T5-base on 1,200 CNN/DailyMail articles over 15 iterations (80 articles/batch).
+- Hyperparameters: Fixed learning rate = 3e-6, epochs = 3, gradient accumulation steps = 4.
+- Runtime: ~2-3 hours on T4 GPU.
+  
+### Full-Scale Experiment
+- Command: Open notebooks/ape_full_scale_experiment.ipynb in Colab and run all cells.
+- Details: Fine-tunes T5-base on 4,000 articles over 17 iterations (~235 articles/batch).
+- Hyperparameters: Fixed learning rate = 3e-6, epochs = 3, gradient accumulation steps = 4.
+- Runtime: ~4-5 hours on T4 GPU.
 
-### Running the Experiments
+**Note**: No standalone train.py script is provided; training is embedded in the notebooks for reproducibility. See the “Perturbation” sections in each notebook for implementation details.
+
+### Evaluation
+To evaluate the trained models as reported in the paper:
+
 **Scaled-Down Experiment**
-- **Notebook**: notebooks/ape_scaled_down_experiment.ipynb
-- **Purpose**: Fine-tune T5-base on 1,200 articles, generate qualitative summaries for 100 test articles.
-- **Runtime**: ~2-3 hours on T4 GPU.
-- **Outputs**: Baseline/final models, qualitative results (results.pkl), human evaluation text file.
-**Run in Colab**
-- Upload the notebook to Colab.
-- Execute all cells sequentially.
-- Results are saved to /content/drive/MyDrive/NeurIPS2025_Results.
+- Command: Run notebooks/ape_scaled_down_experiment.ipynb in Colab.
+- Output: Generates qualitative summaries for 100 test articles, saved as summaries_for_evaluation.txt for human evaluation (Section 5.2).
 
 **Full-Scale Experiment**
-- **Notebook**: notebooks/ape_full_scale_experiment.ipynb
-- **Purpose**: Fine-tune T5-base on 4,000 articles, compute quantitative metrics, and plot results.
-- **Runtime**: ~4-5 hours on T4 GPU.
-- **Outputs**: Baseline/final models, metric history (results_summary.pkl), plots (PDFs).
-**Run in Colab**
-- Upload the notebook to Colab.
-- Execute all cells sequentially.
-- Results are saved to /content/drive/MyDrive/NeurIPS2025_Results.
+- Command: Run notebooks/ape_full_scale_experiment.ipynb in Colab.
+- Output: Computes BLEU, ROUGE-1, BERTScore, and perplexity on 300 test articles, with results saved in results_summary.pkl and plots in plots/.
+- Metrics Reproduction: See the “Compute Metrics” section in the notebook for exact calculations.
+
+**Note**: Evaluation is integrated into the notebooks. Results match Tables 3 and Figure 2 in the paper.
+
+### Pre-trained Models
+Pre-trained models are not hosted publicly during review to maintain anonymity. They are generated during notebook execution:
+
+- Baseline Model: T5-base before perturbations, saved as models/baseline_model/ in Google Drive.
+- Final Models:
+    - Scaled-Down: After 15 iterations, saved as models/final_model/.
+    - Full-Scale: After 17 iterations, saved as models/final_model/.
+    - Training Details: Fine-tuned on CNN/DailyMail with fixed LR=3e-6, as described in Section 4.
+    - Access: Run the notebooks to generate these models locally. Post-review, links to pre-trained models will be added here if accepted.
 
 ### Results
-- **Scaled-Down**: Qualitative summaries for human evaluation (see paper Section 5.2).
-- **Full-Scale**: Quantitative improvements (e.g., 33.9% BLEU increase) and plots (see paper Figure 2).
-Outputs are stored in Google Drive as linked in the notebooks. See results/README.md for access instructions.
+APE achieves the following performance on the CNN/DailyMail dataset:
 
-### Reproducibility
-Random seeds are set (np.random.seed(42), torch.manual_seed(42)) for consistent results.
-Environment checks ensure compatibility (Python 3.8+, T4 GPU, package versions).
+**Text Summarization on CNN/DailyMail**
+**Full-Scale Experiment (Quantitative Metrics)**
+  Model	BLEU	ROUGE-1	BERTScore	Perplexity
+  Baseline T5-base	0.062	0.290	0.343	13.0
+  APE (17 iters)	0.083	0.329	0.398	8.3
+**Scaled-Down Experiment (Human Evaluation)**
+  Metric	Baseline	APE (15 iters)
+  Informativeness	2.24	3.17
+  Fluency	2.09	3.43
+  Factual Accuracy	2.32	3.05
+  Reproduction: Run ape_full_scale_experiment.ipynb to reproduce quantitative results (Figure 2) and ape_scaled_down_experiment.ipynb for   qualitative summaries (Table 3). See PapersWithCode for context.
 
-Note: All code is self-contained within the notebooks, with external data accessed via datasets.
+### Contributing
+This project is licensed under the . You are free to share and adapt the material for non-commercial purposes with appropriate credit.
 
+To contribute:
 
-### Citation
-Pending acceptance at NeurIPS 2025. For now, please cite as:
-
-[Anonymous Authors]. (2025). "APE: A Data-Centric Benchmark for Efficient LLM Adaptation in Text Summarization." Submitted to NeurIPS 2025.
-
-### Contact
-For inquiries, please use the NeurIPS submission portal (anonymized for review).
+Fork the repository post-review (once public).
+Submit pull requests with bug fixes, enhancements, or additional experiments.
+Contact the authors via the NeurIPS portal during review for suggestions.
+Note: Contributions are welcome after the review process when the repository is made public. For now, please refrain from direct modifications to maintain anonymity.
