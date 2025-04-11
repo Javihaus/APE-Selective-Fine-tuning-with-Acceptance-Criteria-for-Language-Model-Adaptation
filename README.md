@@ -37,5 +37,54 @@ APE leverages iterative data perturbations inspired by Stuart Kauffman’s "adja
 
 ### Install Dependencies
 
-```bash
 pip install -r requirements.txt
+
+### Alternative Installation
+Alternatively, run the notebooks in Google Colab, which includes a commented !pip install cell for dependency installation directly within the notebook environment.
+
+### Access Data
+The CNN/DailyMail dataset (v3.0.0) is loaded via the datasets library. See data/README.md for details. Ensure a stable internet connection for dataset download.
+
+### Google Drive Setup
+Mount your Google Drive in Colab to save outputs (requires ~5 GB free space). Update BASE_DIR in the notebooks if using a different path.
+
+### Running the Experiments
+**Scaled-Down Experiment**
+- **Notebook**: notebooks/ape_scaled_down_experiment.ipynb
+- **Purpose**: Fine-tune T5-base on 1,200 articles, generate qualitative summaries for 100 test articles.
+- **Runtime**: ~2-3 hours on T4 GPU.
+- **Outputs**: Baseline/final models, qualitative results (results.pkl), human evaluation text file.
+**Run in Colab**
+- Upload the notebook to Colab.
+- Execute all cells sequentially.
+- Results are saved to /content/drive/MyDrive/NeurIPS2025_Results.
+
+**Full-Scale Experiment**
+- **Notebook**: notebooks/ape_full_scale_experiment.ipynb
+- **Purpose**: Fine-tune T5-base on 4,000 articles, compute quantitative metrics, and plot results.
+- **Runtime**: ~4-5 hours on T4 GPU.
+- **Outputs**: Baseline/final models, metric history (results_summary.pkl), plots (PDFs).
+**Run in Colab**
+- Upload the notebook to Colab.
+- Execute all cells sequentially.
+- Results are saved to /content/drive/MyDrive/NeurIPS2025_Results.
+
+### Results
+- Scaled-Down: Qualitative summaries for human evaluation (see paper Section 5.2).
+- Full-Scale: Quantitative improvements (e.g., 33.9% BLEU increase) and plots (see paper Figure 2).
+Outputs are stored in Google Drive as linked in the notebooks. See results/README.md for access instructions.
+
+### Reproducibility
+Random seeds are set (np.random.seed(42), torch.manual_seed(42)) for consistent results.
+Environment checks ensure compatibility (Python 3.8+, T4 GPU, package versions).
+
+All code is self-contained within the notebooks, with external data accessed via datasets.
+
+
+### Citation
+Pending acceptance at NeurIPS 2025. For now, please cite as:
+
+[Anonymous Authors]. (2025). "APE: A Data-Centric Benchmark for Efficient LLM Adaptation in Text Summarization." Submitted to NeurIPS 2025.
+
+### Contact
+For inquiries, please use the NeurIPS submission portal (anonymized for review).
