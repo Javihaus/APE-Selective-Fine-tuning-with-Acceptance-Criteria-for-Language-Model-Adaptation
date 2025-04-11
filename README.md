@@ -70,15 +70,15 @@ Mount your Google Drive in Colab to save outputs (requires ~5 GB free space). Up
 - Results are saved to /content/drive/MyDrive/NeurIPS2025_Results.
 
 ### Results
-- Scaled-Down: Qualitative summaries for human evaluation (see paper Section 5.2).
-- Full-Scale: Quantitative improvements (e.g., 33.9% BLEU increase) and plots (see paper Figure 2).
+- **Scaled-Down**: Qualitative summaries for human evaluation (see paper Section 5.2).
+- **Full-Scale**: Quantitative improvements (e.g., 33.9% BLEU increase) and plots (see paper Figure 2).
 Outputs are stored in Google Drive as linked in the notebooks. See results/README.md for access instructions.
 
 ### Reproducibility
 Random seeds are set (np.random.seed(42), torch.manual_seed(42)) for consistent results.
 Environment checks ensure compatibility (Python 3.8+, T4 GPU, package versions).
 
-All code is self-contained within the notebooks, with external data accessed via datasets.
+Note: All code is self-contained within the notebooks, with external data accessed via datasets.
 
 
 ### Citation
