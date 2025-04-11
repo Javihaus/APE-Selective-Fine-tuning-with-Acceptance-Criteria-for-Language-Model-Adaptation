@@ -1,0 +1,21 @@
+# Ignore Python and Jupyter artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.ipynb_checkpoints/
+
+# Ignore large files and temporary data
+*.pkl
+*.pth
+*.pt
+*.pdf
+*.txt
+models/
+results/
+data/
+
+# Ignore Colab-specific files
+*.log
+*.cache
