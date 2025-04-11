@@ -76,24 +76,29 @@ Pre-trained models are not hosted publicly during review to maintain anonymity. 
 APE achieves the following performance on the CNN/DailyMail dataset:
 
 ### Text Summarization on CNN/DailyMail
-#### Full-Scale Experiment (Quantitative Metrics)**
-- Model	BLEU	ROUGE-1	BERTScore	Perplexity
-- Baseline T5-base	0.062	0.290	0.343	13.0
-- APE (17 iters)	0.083	0.329	0.398	8.3
+#### Full-Scale Experiment (Quantitative Metrics)
+- Metrics:	BLEU	/ ROUGE-1 /	BERTScore	/ Perplexity
+- Baseline T5-base:	0.062	/ 0.290 /	0.343 /	13.0
+- APE (17 iters):	0.083	/ 0.329	/ 0.398	/ 8.3
   
-#### Scaled-Down Experiment (Human Evaluation)**
-- Metric	Baseline	APE (15 iters)
-- Informativeness	2.24	3.17
-- Fluency	2.09	3.43
-- Factual Accuracy	2.32	3.05
-- Reproduction: Run ape_full_scale_experiment.ipynb to reproduce quantitative results (Figure 2) and ape_scaled_down_experiment.ipynb for   qualitative summaries (Table 3). See PapersWithCode for context.
+#### Scaled-Down Experiment (Human Evaluation)
+- Metric: 	Baseline /	APE (15 iters)
+- Informativeness:	2.24	/ 3.17
+- Fluency:	2.09	/ 3.43
+- Factual Accuracy:	2.32	/ 3.05
+
+### Reproduction: 
+Run ape_full_scale_experiment.ipynb to reproduce quantitative results (Figure 2) and ape_scaled_down_experiment.ipynb for qualitative summaries (Table 3). See PapersWithCode for context.
 
 ### Contributing
 This project is licensed under the . You are free to share and adapt the material for non-commercial purposes with appropriate credit.
 
-To contribute:
+### To contribute:
 
-Fork the repository post-review (once public).
+#### Fork the repository post-review (once public).
 Submit pull requests with bug fixes, enhancements, or additional experiments.
+
+### Contact:
 Contact the authors via the NeurIPS portal during review for suggestions.
-Note: Contributions are welcome after the review process when the repository is made public. For now, please refrain from direct modifications to maintain anonymity.
+
+**Note**: Contributions are welcome after the review process when the repository is made public. For now, please refrain from direct modifications to maintain anonymity.
