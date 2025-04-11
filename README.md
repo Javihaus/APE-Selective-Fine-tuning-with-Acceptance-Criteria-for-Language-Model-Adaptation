@@ -31,6 +31,8 @@ Alternatively, run the notebooks in Google Colab, which include a commented !pip
 - Dataset: CNN/DailyMail v3.0.0, automatically downloaded via the datasets library. Ensure a stable internet connection.
 - Storage: Mount Google Drive in Colab with ~5 GB free space for outputs. Update BASE_DIR in notebooks if using a custom path.
 
+**Note on Self-Containment:** This code is not fully self-contained due to external dependencies: (1) internet access for dataset download via Hugging Face’s datasets library, and (2) Google Drive for storing large model outputs. These are standard in NLP research, as the CNN/DailyMail dataset (1.5 GB) and fine-tuned models (~1 GB each) exceed practical submission size limits. Instructions ensure reviewers can replicate the setup with minimal effort.
+
 ### Training
 To train the APE model(s) as described in the paper, use the provided Jupyter notebooks:
 
