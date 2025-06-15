@@ -1,4 +1,5 @@
-# APE: A Data-Centric Benchmark for Efficient LLM Adaptation in Text Summarization
+# APE: APE: Selective Fine-tuning with Acceptance Criteria for Language Model Adaptation
+
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![License](https://img.shields.io/badge/License-CC%20BY%204.0-green.svg)
@@ -8,15 +9,19 @@ This repository is the official implementation of APE: A Data-Centric Benchmark 
 in Text Summarization. During the review process, this code is provided as supplementary material to maintain anonymity. Post-review, the public repository will be released.
 
 ### Abstract: 
-Large language models (LLMs), pre-trained on trillion-token-scale datasets like C4 using denoising objectives, excel in general tasks but often require efficient adaptation for specific applications. We propose Adjacent Possible Exploration (APE), a data-centric methodology inspired by Stuart Kauffman’s “adjacent possible,” designed as a reusable framework for benchmarking LLM adaptability across diverse tasks. By iteratively perturbing training data in small batches—mimicking biological evolution—APE guides models toward domain-specific performance with minimal resources, offering a scalable alternative to traditional fine-tuning and parameter-efficient methods like LoRA. We evaluate APE on the CNN/DailyMail dataset for news summarization, using full-scale and scaled-down setups, with qualitative analysis and human evaluation confirming its effectiveness. APE’s focus on data optimization provides a computationally efficient benchmark for adapting LLMs, extensible to tasks beyond summarization, such as question answering or dialogue generation, in resource-constrained settings.
-
- ### BibTeX:
+We present Adjacent Possible Exploration (APE), a selective fine-tuning method for adapting large language models that systematically explores parameter modifications while maintaining model stability. Inspired by evolutionary optimization principles, APE evaluates multiple candidate parameter updates through fine-tuning on small data subsets and accepts only those exceeding a performance threshold. Unlike standard fine-tuning that follows single gradient directions, APE implements a filtered selection process that prevents destabilizing parameter changes while enabling systematic improvement. Our method achieves 33.9\% BLEU improvement and 36.2\% perplexity reduction on news summarization tasks while using minimal computational resources. The approach provides a practical framework for controlled model adaptation that balances performance gains with representational stability.
+ 
+### BibTeX citation:
  ```
- @misc{anon2025ape,
-   title={APE: A Data-Centric Benchmark for Efficient LLM Adaptation in Text Summarization},
-   author={Javier Marín},
-   year={2025},
- }
+ @misc{marín2025apeselectivefinetuningacceptance,
+      title={APE: Selective Fine-tuning with Acceptance Criteria for Language Model Adaptation}, 
+      author={Javier Marín},
+      year={2025},
+      eprint={2505.19912},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2505.19912}, 
+}
  ```
 
 ## Requirements
