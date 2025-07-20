@@ -1,9 +1,13 @@
 # APE: APE: Selective Fine-tuning with Acceptance Criteria for Language Model Adaptation
 
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![License](https://img.shields.io/badge/License-CC%20BY%204.0-green.svg)
-![Hardware](https://img.shields.io/badge/Hardware-T4%20GPU-orange.svg)
+<table>
+<tr>
+<td><img src="https://img.shields.io/badge/python-3.8+-blue.svg" alt="Python 3.8+"></td>
+<td><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></td>
+ <td><img src="https://img.shields.io/badge/Hardware-T4%20GPU-orange.svg" alt="Hardware: GPU"></td>
+</tr>
+</table>
 
 This repository is the official implementation of APE: A Data-Centric Benchmark for Efficient LLM Adaptation
 in Text Summarization. During the review process, this code is provided as supplementary material to maintain anonymity. Post-review, the public repository will be released.
